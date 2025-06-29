@@ -1,0 +1,22 @@
+<!-- views/books/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Books</title>
+  </head>
+  <body>
+    <%- include('../partials/_navbar') %>
+    <h1>Here's all the Books</h1>
+    <a href="/books/new">Add a New Book</a>
+    <ul>
+  <% books.forEach(book => { %>
+  <li>
+    A book in <%= book.name %> reviewed by <%= book.owner.username %>.
+  </li>
+  <% }) %>
+</ul>
+  </body>
+</html> 

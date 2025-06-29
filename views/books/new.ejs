@@ -1,0 +1,11 @@
+<%- include('../partials/_navbar.ejs') %>
+  <h1>Add a new Book</h1>
+  <form method="POST" action="/books">
+  <label for="name">name:</label>
+  <input type="text" name="name" id="name" />
+  <label for="author">author:</label>
+  <input type="text" name="author" id="author" />
+  <label for="review">review:</label>
+  <input type="text" name="review" id="review" />
+  <button type="submit">Add book</button>
+  </form> 
