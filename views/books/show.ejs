@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= book.owner.username %>'s book</title>
+  </head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+
+    <h1>The book: <%= book.name %></h1>
+
+    <h2>Details</h2>
+    <p>name: <%= book.name %></p>
+    <p>Author: <%= book.author %></p>
+    <p>review: <%= book.review %></p>
+    
+ <ul>
+  <% book.forEach(review => { %>
+  <li>
+    The book: <%= book.name %> reviewed by <%= book.owner.username %>.
+    <a href="/books/<%= book._id %>">add Review.</a>
+  </li>
+  <% }) %>
+</ul>
+<!-- add a review --> 
+    <h2>Review</h2>
+  <% if (book.owner._id.equals(user._id)) { %>
+    <p>You reviewed this Book!</p>
+    <a href="/books/<%= book._id %>/edit">Edit this Book</a>
+    <form action="/books/<%= book._id %>?_method=DELETE" method="POST">
+  <button type="submit">Delete this Book</button>
+</form>
+  <% } else { %>
+    <p>You didn't review this Book, <%= book.owner.username %> did!</p>
+  <% } %>
+  </body>
+</html>
