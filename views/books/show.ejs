@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+
     <title><%= book.owner.username %>'s book</title>
   </head>
   <body>
@@ -14,23 +16,30 @@
     <p>name: <%= book.name %></p>
     <p>Author: <%= book.author %></p>
     <p>review: <%= book.review %></p>
-    
- <ul>
-  <% book.forEach(review => { %>
+
+     <h1>Add your review to the Book</h1>
+  <form action="/books/<%= book._id %>/add-review" method="POST">
+  <label for="review">review:</label>
+  <input type="text" name="review" id="review" />
+  <button type="submit">Add review</button>
+  </form> 
+  <h3>Reviews written by Users:</h3>
+
+ <% book.reviews.forEach(review => { %>
   <li>
-    The book: <%= book.name %> reviewed by <%= book.owner.username %>.
-    <a href="/books/<%= book._id %>">add Review.</a>
+    <%= review.review %>    
   </li>
   <% }) %>
-</ul>
 <!-- add a review --> 
     <h2>Review</h2>
   <% if (book.owner._id.equals(user._id)) { %>
+    <div class="edit-container">
     <p>You reviewed this Book!</p>
     <a href="/books/<%= book._id %>/edit">Edit this Book</a>
     <form action="/books/<%= book._id %>?_method=DELETE" method="POST">
   <button type="submit">Delete this Book</button>
 </form>
+</div>
   <% } else { %>
     <p>You didn't review this Book, <%= book.owner.username %> did!</p>
   <% } %>

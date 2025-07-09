@@ -5,17 +5,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+
     <title>All Books</title>
+
   </head>
   <body>
     <%- include('../partials/_navbar') %>
+    <div class="books-image"></div>
     <h1>Here's all the Books</h1>
+    <div class="add-book">
     <a href="/books/new">Add a New Book</a>
+    </div>
     <ul>
   <% books.forEach(book => { %>
   <li>
     The book: <%= book.name %> reviewed by <%= book.owner.username %>.
+    <div class="view-review">
     <a href="/books/<%= book._id %>">View Review.</a>
+    </div>
   </li>
   <% }) %>
 </ul>

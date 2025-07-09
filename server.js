@@ -11,6 +11,8 @@ const passUserToView = require('./middleware/pass-user-to-view');
 const isSignedIn = require('./middleware/is-signed-in');
 // Set the port from environment variable or default to 3000
 const port = process.env.PORT ? process.env.PORT : "3000";
+const path = require('path');
+
 mongoose.connect(process.env.MONGODB_URI);
 mongoose.connection.on("connected", () => {
   console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
@@ -21,6 +23,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 // Morgan for logging HTTP requests
 app.use(morgan('dev'));
+app.use(express.static(path.join(__dirname, 'public')));
+//The express.static middleware is designed to serve static files like CSS stylesheets.
 // Session Configurations
 app.use(
   session({
@@ -30,7 +34,7 @@ app.use(
   })
 );
 app.use(passUserToView);
-// GET
+ // GET
 app.get('/', (req, res) => {
   res.render('index.ejs', {
     user: req.session.user,
@@ -46,9 +50,7 @@ app.use('/books', isSignedIn, booksController);
 
 // Route - Just for testing purpose
 // VIP-lounge
-app.get("/vip-lounge", isSignedIn, (req, res) => {
-  res.send(`Welcome to the party`);
-});
+
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
 });

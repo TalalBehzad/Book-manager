@@ -13,6 +13,7 @@ router.post("/sign-up", async (req, res )=>{
     return res.send("Password and confirm password must match")
   }
   // Register a User
+  //Using bycrpyt is the libary that we use for our passwords and then the hashSync is used as the function
   const hashedPassword = bcrypt.hashSync(req.body.password, 10);
   req.body.password = hashedPassword;
   // Create a User

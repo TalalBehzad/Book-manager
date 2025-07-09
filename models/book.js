@@ -16,6 +16,13 @@ const bookSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
   },
+  reviews: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Review'
+      }
+    ]
+
 });
 //The owner property stores the ObjectId of a 
 // user document. This pattern is known as 

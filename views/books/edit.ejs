@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+
     <title>Edit </title>
   </head>
   <form action="/books/<%= book._id %>?_method=PUT" method="POST">
@@ -17,5 +19,6 @@
   <body>
     <%- include('../partials/_navbar.ejs') %>
     <h1>Edit the Book!</h1>
+    <h3>Feel free to change any changes that need to be done for your books!</h3>
   </body>
 </html>
