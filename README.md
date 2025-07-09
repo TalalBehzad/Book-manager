@@ -1,7 +1,7 @@
 # Book Manager📚
 ![alt text](<public/images/Screenshot 2025-07-08 194532.png>)
 
-![ ERD ](<Screenshot 2025-07-08 210609.png>)
+![alt text](image.png)
 **Welcome to Book Manager. An app designed for those specificaly who enjoy reading Books and Novels. You are able to log the books with the authors, while also giving them your personal review and what you thought about them**
 
 ##  Main Functionality include:
@@ -16,6 +16,7 @@
 
 ## Attributions/Trello 
 - https://trello.com/invite/b/68566606d9d323f1b9a8beb5/ATTI536ed914725f86f240853968e5ea5043EE9DA95B/project02 
+- https://lucid.app/lucidchart/a3740e1b-fd74-47c0-a818-ed66b39af920/edit?viewport_loc=-966%2C-425%2C608%2C543%2C0_0&invitationId=inv_a05362a1-316d-4347-a7ac-5a797ef31b73 
 
 
 ## Technology Used
